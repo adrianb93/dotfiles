@@ -1,10 +1,9 @@
 [user]
-    name = Tim MacDonald
-    email = hello@timacdonald.me
-    signingkey = E05B0D8446E02087
+    name = Adrian Brown
+    email = adrianrb93@gmail.com
 [core]
     excludesfile = ~/.gitignore_global
-    editor = vim
+    editor = code
     pager = delta
 [commit]
     gpgsign = true

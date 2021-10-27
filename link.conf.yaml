@@ -1,10 +1,6 @@
 - clean: ['~']
 
 - link:
-    ~/.config/kitty/kitty.conf:
-        path: files/kitty.conf
-        relink: true
-        create: true
     ~/.Brewfile:
         path: files/.Brewfile
         relink: true
@@ -43,10 +39,6 @@
         path: files/ssh_config
         create: true
         relink: true
-    ~/.config/karabiner/karabiner.json:
-        path: files/karabiner.json
-        create: true
-        relink: true
     ~/.vim/after/ftplugin:
         path: files/vim/after/ftplugin
         create: true
@@ -55,7 +47,6 @@
         path: files/vim/ftdetect
         create: true
         relink: true
-
 
 - create:
     - ~/.fzf_history

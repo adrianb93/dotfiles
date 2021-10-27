@@ -43,8 +43,6 @@ echo '==========================================================================
 echo 'Installing, updating, and cleaning up brew dependencies...'
 brew bundle --global
 brew bundle cleanup --force --global
-# brew services cleanup
-# sudo brew services cleanup
 brew cleanup
 echo 'Done installing, updating, and cleaning up brew dependencies.'
 echo '================================================================================'
@@ -57,7 +55,7 @@ echo '==========================================================================
 
 echo '================================================================================'
 echo 'Installing and updating npm dependencies...'
-npm install -g npm@latest spaceship-prompt 
+npm install -g npm@latest spaceship-prompt
 npm update -g
 echo 'Done installing and updating npm dependencies.'
 echo '================================================================================'
@@ -85,20 +83,6 @@ echo '==========================================================================
 echo 'Installing and updating FZF...'
 /usr/local/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
 echo 'Done installing and updating FZF.'
-echo '================================================================================'
-
-echo '================================================================================'
-echo 'Installing and updating terminal theme...'
-curl --create-dirs -fLo $HOME/.config/kitty/dracula.conf https://raw.githubusercontent.com/dracula/kitty/master/dracula.conf
-echo 'Done installing and updating terminal theme.'
-echo '================================================================================'
-
-echo '================================================================================'
-echo 'Setting up a fresh Laravel playground...'
-rm -rf $HOME/Code/playground
-mkdir -p $HOME/Code
-composer create-project laravel/laravel $HOME/Code/playground
-echo 'Done setting up a fresh Laravel playground.'
 echo '================================================================================'
 
 cd $STARTING_DIR

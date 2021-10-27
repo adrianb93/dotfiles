@@ -2,9 +2,10 @@
 
 - Check before burning the hard drive for unsynced content, including:
     - Home directory files
-    - unpushed changes / branches / repos
+    - Unpushed changes / branches / repos
+    - Any files or photos
 
-# Settings up the new machine
+# Setting up the new machine
 
 1. Apple:
    - Sign into iCloud
@@ -14,32 +15,21 @@
    - Open Xcode
    - Run `xcode-select --install`
 3. Install and setup 1Password
-3. Run the installation script...
+4. Run the installation script...
 ```sh
 mkdir $HOME/Code && cd $HOME/Code
-git clone https://github.com/timacdonald/dotfiles.git && cd dotfiles
+git clone https://github.com/adrianb93/dotfiles.git && cd dotfiles
 bash install
 compaudit | xargs chmod g-w
-```
-4. Open Karabiner elements
-4. Import GPG key
-```sh
-gpg —-import /path/to/secret-key-backup.asc
-gpg --list-keys
-# copy keyid
-gpg --edit-key {keyid} trust quit
-# trust ultimately
 ```
 5. Drop SSH keys into ~/.ssh
 6. Add SSH key to agent
 ```
 ssh-add -K ~/.ssh/id_ed25519
 ```
-6. Install browser plugins:
-   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+7. Install browser plugins:
    - [1Password](https://1password.com/browsers/firefox/)
-7. Install home printer
-8. Install Monolisa font
+   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
 
 # Updating
 

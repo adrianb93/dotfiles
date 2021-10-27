@@ -22,6 +22,7 @@ brew 'git-open'
 brew 'gnu-sed'
 brew 'gnu-which'
 brew 'gnupg'
+brew 'gti'
 brew 'java'
 brew 'less'
 brew 'mas'
@@ -41,25 +42,27 @@ brew 'zsh-autosuggestions'
 brew 'zsh-history-substring-search'
 brew 'zsh-syntax-highlighting'
 # apps
+cask '1password'
+cask 'discord'
 cask 'docker'
-cask 'elgato-control-center'
-cask 'firefox-developer-edition'
+cask 'figma'
+cask 'github'
 cask 'imageoptim'
-cask 'karabiner-elements'
-cask 'kitty'
-cask 'postman'
-cask 'pritunl'
-cask 'skype'
+cask 'loom'
+cask 'notion'
+cask 'messenger'
+cask 'ray'
+cask 'raycast'
+cask 'spotify'
+cask 'slack'
+cask 'sublime-text'
+cask 'tableplus'
+cask 'telegram'
+cask 'tinkerwell'
+cask 'visual-studio-code'
+casl 'vlc'
 cask 'zoom'
 
 # MAS apps
-mas '1Password 7', id: 1333542190
-mas 'Contrast', id: 1254981365
-mas 'ForkLift', id: 412448059
-mas 'Irvue', id: 1039633667
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
-mas 'Pixelmator', id: 407963104
-mas 'ScreenFlow 9', id: 1475796517
-mas 'Slack', id: 803453959
-mas 'Telegram', id: 747648890
