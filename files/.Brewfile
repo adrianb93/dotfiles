@@ -1,8 +1,11 @@
-tap 'homebrew/cask'
-tap 'homebrew/cask-drivers'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/services'
+tap "buo/cask-upgrade"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
 
 # dependencies
 brew 'pkg-config' # bunch of things
@@ -34,7 +37,6 @@ brew 'tree'
 brew 'vim'
 brew 'watchman'
 brew 'wget'
-brew 'wrk'
 brew 'yarn'
 brew 'z'
 brew 'zsh'
@@ -51,6 +53,7 @@ cask 'imageoptim'
 cask 'loom'
 cask 'notion'
 cask 'messenger'
+cask 'mimestream'
 cask 'ray'
 cask 'raycast'
 cask 'spotify'
@@ -60,9 +63,12 @@ cask 'tableplus'
 cask 'telegram'
 cask 'tinkerwell'
 cask 'visual-studio-code'
-casl 'vlc'
+cask 'vlc'
 cask 'zoom'
 
-# MAS apps
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
+# mas "Adblock Plus", id: 1432731683
+# mas "GarageBand", id: 682658836
+# mas "iMovie", id: 408981434
+# mas "Keynote", id: 409183694
+# mas "Numbers", id: 409203825
+# mas "Pages", id: 409201541

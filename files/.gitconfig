@@ -6,7 +6,7 @@
     editor = code
     pager = delta
 [commit]
-    gpgsign = true
+    # gpgsign = true
     template = ~/.gitmessage
 [gpg]
     program = gpg
@@ -87,3 +87,8 @@
     line-numbers-plus-style = 28
 [init]
     defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
