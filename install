@@ -40,10 +40,17 @@ echo 'Done linking dotfiles.'
 echo '================================================================================'
 
 echo '================================================================================'
+echo 'Setting macos defaults...'
+/bin/bash $HOME/Code/dotfiles/defaults
+echo 'Done setting macos defaults.'
+echo '================================================================================'
+
+echo '================================================================================'
 echo 'Installing, updating, and cleaning up brew dependencies...'
 brew bundle --global
 brew bundle cleanup --force --global
 brew cleanup
+brew cu --all --yes
 echo 'Done installing, updating, and cleaning up brew dependencies.'
 echo '================================================================================'
 
@@ -65,7 +72,7 @@ echo 'Installing and updating pecl dependencies...'
 pecl update-channels
 # pecl upgrade will also install if it isn't yet installed, where as pecl
 # install will fail if it is installed.
-pecl upgrade pcov
+# pecl upgrade pcov
 echo 'Done installing and updating pecl dependencies.'
 echo '================================================================================'
 
@@ -81,7 +88,7 @@ echo '==========================================================================
 
 echo '================================================================================'
 echo 'Installing and updating FZF...'
-/usr/local/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
+/opt/homebrew/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
 echo 'Done installing and updating FZF.'
 echo '================================================================================'
 

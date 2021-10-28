@@ -12,8 +12,17 @@
     ~/.gitmessage:
         path: files/.gitmessage
         relink: true
+    ~/.aliases:
+        path: files/.aliases
+        relink: true
+    ~/.functions:
+        path: files/.functions
+        relink: true
     ~/.zshrc:
         path: files/.zshrc
+        relink: true
+    ~/.mackup.cfg:
+        path: files/.mackup.cfg
         relink: true
     ~/.gitconfig:
         path: files/.gitconfig
