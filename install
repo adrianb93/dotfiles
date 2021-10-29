@@ -62,6 +62,14 @@ echo '==========================================================================
 
 echo '================================================================================'
 echo 'Installing and updating npm dependencies...'
+# stop the echoing to .zshrc
+if [[ ! -w /usr/local/share/zsh/site-functions ]]; then
+    sudo -v
+    sudo mkdir -p /usr/local/share/zsh
+    sudo mkdir -p /usr/local/share/zsh/site-functions
+    sudo chmod a+rwx /usr/local/share/zsh/site-functions
+fi
+
 npm install -g npm@latest spaceship-prompt typewritten
 npm update -g
 echo 'Done installing and updating npm dependencies.'
