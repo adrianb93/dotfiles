@@ -6,6 +6,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "shivammathur/php"
 
 # dependencies
 brew 'pkg-config' # bunch of things
@@ -34,6 +35,8 @@ brew 'mas'
 brew 'mackup'
 brew 'nginx'
 brew 'node'
+brew 'php@7.3'
+brew 'php@7.4'
 brew 'php@8.0'
 brew 'ripgrep'
 brew 'sqlite'
@@ -63,6 +66,7 @@ cask 'ray'
 cask 'raycast'
 cask 'spotify'
 cask 'slack'
+cask 'sourcetree'
 cask 'sublime-text'
 cask 'tableplus'
 cask 'telegram'
