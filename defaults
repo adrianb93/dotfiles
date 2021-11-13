@@ -3,6 +3,7 @@
 # Fast key repeat
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+defaults write -g ApplePressAndHoldEnabled -bool true # you want fast navigation keys, but I never care to key repeat letters or numbers.
 
 # Enable full keyboard access for dialogs
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -20,7 +21,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Set sidebar icon size to small
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -52,6 +53,9 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder: prefer to not show hidden files as I know how to toggle them
+defaults write com.apple.Finder AppleShowAllFiles -bool false
 
 # Finder: allow text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true
@@ -87,14 +91,23 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Do not show recent apps in the dock
 defaults write com.apple.dock show-recents -bool false
 
+# I like the scale effect for minimising apps
+defaults write com.apple.dock "mineffect" -string "scale"
+
 # I prefer that apps minimise into the app icon
 defaults write com.apple.dock minimize-to-application -bool true
 
 # Automatically hide the dock
 defaults write com.apple.dock autohide -bool true
 
+# Automatically hide the menu bar
+defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
+
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
+
+# I like the dock on the bottom
+defaults write com.apple.dock "orientation" -string "bottom"
 
 # Add only the applications folder to the right side of the dock
 defaults write com.apple.dock persistent-others -array '<dict>
