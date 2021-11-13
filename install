@@ -100,6 +100,13 @@ echo 'Installing and updating FZF...'
 echo 'Done installing and updating FZF.'
 echo '================================================================================'
 
+echo '================================================================================'
+echo 'Configuring software...'
+valet trust
+# sudo chmod -R 755 /usr/local/share/zsh/site-functions
+echo 'Done configuring software.'
+echo '================================================================================'
+
 cd $STARTING_DIR
 
 # Additionally, if you receive “zsh compinit: insecure directories” warnings
