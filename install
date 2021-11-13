@@ -2,9 +2,13 @@
 
 set -e
 
+echo 'We should only need the sudo password once:'
+sudo -v
+
 STARTING_DIR=$PWD
 cd $HOME
 
+sudo -v
 if test ! $(which brew); then
     echo '================================================================================'
     echo 'Installing homebrew...'
@@ -13,6 +17,7 @@ if test ! $(which brew); then
     echo '================================================================================'
 fi
 
+sudo -v
 if test ! -e $HOME/.vim/autoload/plug.vim; then
     echo '================================================================================'
     echo 'Installing vim-plug...'
@@ -22,6 +27,7 @@ if test ! -e $HOME/.vim/autoload/plug.vim; then
 fi
 
 # @see: https://intelephense.com/faq.html
+sudo -v
 if test ! -e $HOME/intelephense/licence.txt; then
     echo '================================================================================'
     echo 'Setting up Intelephense license...'
@@ -33,18 +39,21 @@ if test ! -e $HOME/intelephense/licence.txt; then
     echo '================================================================================'
 fi
 
+sudo -v
 echo '================================================================================'
 echo 'Linking dotfiles...'
 /bin/bash $HOME/Code/dotfiles/link
 echo 'Done linking dotfiles.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Setting macos defaults...'
 /bin/bash $HOME/Code/dotfiles/defaults
 echo 'Done setting macos defaults.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing, updating, and cleaning up brew dependencies...'
 brew bundle --global
@@ -54,27 +63,27 @@ brew cu --all --yes
 echo 'Done installing, updating, and cleaning up brew dependencies.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing and updating composer dependencies...'
 composer global update --with-all-dependencies
 echo 'Done installing and updating composer dependencies.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing and updating npm dependencies...'
 # stop the echoing to .zshrc
-if [[ ! -w /usr/local/share/zsh/site-functions ]]; then
-    sudo -v
-    sudo mkdir -p /usr/local/share/zsh
-    sudo mkdir -p /usr/local/share/zsh/site-functions
-    sudo chmod a+rwx /usr/local/share/zsh/site-functions
-fi
+sudo mkdir -p /usr/local/share/zsh
+sudo mkdir -p /usr/local/share/zsh/site-functions
+sudo chmod a+rwx /usr/local/share/zsh/site-functions
 
 npm install -g npm@latest spaceship-prompt typewritten
 npm update -g
 echo 'Done installing and updating npm dependencies.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing and updating pecl dependencies...'
 pecl update-channels
@@ -84,6 +93,7 @@ pecl update-channels
 echo 'Done installing and updating pecl dependencies.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing and updating vim-plug and its dependencies...'
 vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
@@ -94,16 +104,21 @@ vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
 echo 'Done installing and updating vim-plug and its dependencies.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Installing and updating FZF...'
 /opt/homebrew/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
 echo 'Done installing and updating FZF.'
 echo '================================================================================'
 
+sudo -v
 echo '================================================================================'
 echo 'Configuring software...'
 valet trust
-# sudo chmod -R 755 /usr/local/share/zsh/site-functions
+
+# Suppress the compinit error caused from us preventing the double .zshrc echo for typewritten earlier
+sudo chmod 755 /usr/local/share/zsh/site-functions
+sudo chown root:staff /usr/local/share/zsh/site-functions
 echo 'Done configuring software.'
 echo '================================================================================'
 
