@@ -6,8 +6,8 @@ export BAT_THEME="Dracula"
 alias ":q"="exit"
 
 # ssh keys
-alias sshgen='ssh-keygen -t ed25519'
-alias sshkey='pbcopy < ~/.ssh/id_ed25519.pub'
+alias sshgen='ssh-keygen -t rsa'
+alias sshkey='pbcopy < ~/.ssh/id_rsa.pub'
 
 # emotes
 alias shrug="echo '¯\_(ツ)_/¯' | tr -d '\n' | pbcopy; echo '¯\_(ツ)_/¯'";
