@@ -1,5 +1,10 @@
 The following are things I cannot automate or might not apply to your hardware:
 
+# SSH Keys
+
+    1. Use `sshgen` to generate keys.
+    2. Use `sshkey` to copy it to the clipboard.
+
 # Using Touch ID for `sudo`
 
     You will want to edit this file: `sudo vim /etc/pam.d/sudo`
