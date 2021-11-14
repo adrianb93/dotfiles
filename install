@@ -2,7 +2,8 @@
 
 set -e
 
-echo "$(< $HOME/Code/dotfiles/art/welcome.txt)"
+export AMOUNT_OF_WELCOME_FILES=5
+echo "$(< "$HOME/Code/dotfiles/art/welcome-$((1 + $RANDOM % $AMOUNT_OF_WELCOME_FILES)).txt")"
 echo ''
 
 echo 'We should only need the sudo password once:'
