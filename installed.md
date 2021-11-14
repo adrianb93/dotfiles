@@ -27,6 +27,13 @@ The following are things I cannot automate or might not apply to your hardware:
     * Simplify Gmail
     * Vue.js Devtools (beta)
 
+    Lastly, YouTube does not have a 3x option. Adding this bookmark will let
+    you set your own playback speed:
+
+    ```
+    javascript:%20r%20=%20prompt("Enter%20Rate");%20document.getElementsByClassName("video-stream")[0].playbackRate%20=%20parseFloat(r);
+    ```
+
 # Slack Groups
 
     * https://phpaustralia.slack.com
