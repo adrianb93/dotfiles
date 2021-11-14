@@ -2,8 +2,9 @@
 
 set -e
 
-export AMOUNT_OF_WELCOME_FILES=5
-echo "$(< "$HOME/Code/dotfiles/art/welcome-$((1 + $RANDOM % $AMOUNT_OF_WELCOME_FILES)).txt")"
+export WELCOME_OPTIONS=20
+export WELCOME_FILE="welcome-$(echo "0$((1 + $RANDOM % $WELCOME_OPTIONS))" | tail -c 3).txt"
+echo "$(< "$HOME/Code/dotfiles/art/$WELCOME_FILE")"
 echo ''
 
 echo 'We should only need the sudo password once:'
@@ -14,71 +15,71 @@ cd $HOME
 
 if test ! $(which brew); then
     echo ''
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     echo 'Installing homebrew...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo 'Done installing homebrew.'
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 fi
 
 if test ! -e $HOME/.vim/autoload/plug.vim; then
     echo ''
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     echo 'Installing vim-plug...'
     curl --create-dirs -fLo $HOME/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo 'Done installing vim-plug.'
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 fi
 
 # @see: https://intelephense.com/faq.html
 if test ! -e $HOME/intelephense/licence.txt; then
     echo ''
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     echo 'Setting up Intelephense license...'
     mkdir -p $HOME/intelephense
     echo 'Enter your Intelephense license key:'
     read -s INTELEPHENSE_LICENSE_KEY
     echo $INTELEPHENSE_LICENSE_KEY > $HOME/intelephense/licence.txt
     echo 'Done setting up Intelephense license.'
-    echo '================================================================================'
+    echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 fi
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Linking dotfiles...'
 /bin/bash $HOME/Code/dotfiles/link
 echo 'Done linking dotfiles.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Setting macos defaults...'
 /bin/bash $HOME/Code/dotfiles/defaults
 echo 'Done setting macos defaults.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing, updating, and cleaning up brew dependencies...'
 brew bundle --global
 brew bundle cleanup --force --global
 brew cleanup
 brew cu --all --yes
 echo 'Done installing, updating, and cleaning up brew dependencies.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating composer dependencies...'
 # Prevents composer from invalidating our sudo session
 export COMPOSER_ALLOW_SUPERUSER=1
 composer global update --with-all-dependencies
 export COMPOSER_ALLOW_SUPERUSER=0
 echo 'Done installing and updating composer dependencies.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating npm dependencies...'
 # Prevent the installation of typewritten from echoing to .zshrc
 sudo mkdir -p /usr/local/share/zsh
@@ -88,20 +89,20 @@ sudo chmod a+rwx /usr/local/share/zsh/site-functions
 npm install -g npm@latest spaceship-prompt typewritten
 npm update -g
 echo 'Done installing and updating npm dependencies.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating pecl dependencies...'
 pecl update-channels
 # pecl upgrade will also install if it isn't yet installed, where as pecl
 # install will fail if it is installed.
 # pecl upgrade pcov
 echo 'Done installing and updating pecl dependencies.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating vim-plug and its dependencies...'
 vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
 vim -es -u $HOME/.vimrc -i NONE -c "PlugUpgrade" -c "qa"
@@ -109,17 +110,17 @@ vim -es -u $HOME/.vimrc -i NONE -c "PlugUpdate" -c "qa"
 vim -es -u $HOME/.vimrc -i NONE -c 'PlugClean!' -c "qa"
 vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
 echo 'Done installing and updating vim-plug and its dependencies.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating FZF...'
 /opt/homebrew/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
 echo 'Done installing and updating FZF.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Configuring software...'
 valet trust
 
@@ -127,14 +128,14 @@ valet trust
 sudo chmod 755 /usr/local/share/zsh/site-functions
 sudo chown -R root:staff /usr/local/share/zsh
 echo 'Done configuring software.'
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Manual Steps:'
 echo ''
 echo "$(< $HOME/Code/dotfiles/installed.md)"
-echo '================================================================================'
+echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 cd $STARTING_DIR
 
