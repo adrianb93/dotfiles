@@ -9,6 +9,7 @@ STARTING_DIR=$PWD
 cd $HOME
 
 if test ! $(which brew); then
+    echo ''
     echo '================================================================================'
     echo 'Installing homebrew...'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -17,6 +18,7 @@ if test ! $(which brew); then
 fi
 
 if test ! -e $HOME/.vim/autoload/plug.vim; then
+    echo ''
     echo '================================================================================'
     echo 'Installing vim-plug...'
     curl --create-dirs -fLo $HOME/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -26,6 +28,7 @@ fi
 
 # @see: https://intelephense.com/faq.html
 if test ! -e $HOME/intelephense/licence.txt; then
+    echo ''
     echo '================================================================================'
     echo 'Setting up Intelephense license...'
     mkdir -p $HOME/intelephense
@@ -36,18 +39,21 @@ if test ! -e $HOME/intelephense/licence.txt; then
     echo '================================================================================'
 fi
 
+echo ''
 echo '================================================================================'
 echo 'Linking dotfiles...'
 /bin/bash $HOME/Code/dotfiles/link
 echo 'Done linking dotfiles.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Setting macos defaults...'
 /bin/bash $HOME/Code/dotfiles/defaults
 echo 'Done setting macos defaults.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing, updating, and cleaning up brew dependencies...'
 brew bundle --global
@@ -57,6 +63,7 @@ brew cu --all --yes
 echo 'Done installing, updating, and cleaning up brew dependencies.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing and updating composer dependencies...'
 # Prevents composer from invalidating our sudo session
@@ -66,6 +73,7 @@ export COMPOSER_ALLOW_SUPERUSER=0
 echo 'Done installing and updating composer dependencies.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing and updating npm dependencies...'
 # Prevent the installation of typewritten from echoing to .zshrc
@@ -78,6 +86,7 @@ npm update -g
 echo 'Done installing and updating npm dependencies.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing and updating pecl dependencies...'
 pecl update-channels
@@ -87,6 +96,7 @@ pecl update-channels
 echo 'Done installing and updating pecl dependencies.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing and updating vim-plug and its dependencies...'
 vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
@@ -97,12 +107,14 @@ vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
 echo 'Done installing and updating vim-plug and its dependencies.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Installing and updating FZF...'
 /opt/homebrew/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
 echo 'Done installing and updating FZF.'
 echo '================================================================================'
 
+echo ''
 echo '================================================================================'
 echo 'Configuring software...'
 valet trust
@@ -113,11 +125,14 @@ sudo chown -R root:staff /usr/local/share/zsh
 echo 'Done configuring software.'
 echo '================================================================================'
 
+echo ''
+echo '================================================================================'
+echo 'Manual Steps:'
+echo ''
+echo "$(< $HOME/Code/dotfiles/installed.md)"
+echo '================================================================================'
+
 cd $STARTING_DIR
 
-# Additionally, if you receive “zsh compinit: insecure directories” warnings
-# when attempting to load these completions, you may need to run this
-# see: https://docs.brew.sh/Shell-Completion
-# compaudit | xargs chmod g-w
-
+echo ''
 echo 'Done!'
