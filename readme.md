@@ -12,7 +12,6 @@
 ██   ██ ██   ██ ██    ██ ██ ███ ██ ██  ██ ██
 ██████  ██   ██  ██████   ███ ███  ██   ████
 -  https://github.com/adrianb93/dotfiles   -
-```
 
 # Before nuking the previous machine
 
@@ -26,12 +25,22 @@
 1. Sign into iCloud
 2. Setup Xcode with `xcode-select --install`
 3. Run the installation script and follow the manual steps at the end:
-```sh
-mkdir $HOME/Code && cd $HOME/Code
-git clone https://github.com/adrianb93/dotfiles.git && cd dotfiles
-bash install
-```
+
+ ------------------------------------------------------------------------
+|                                                                        |
+|  $ mkdir $HOME/Code && cd $HOME/Code                                   |
+|  $ git clone https://github.com/adrianb93/dotfiles.git && cd dotfiles  |
+|  $ bash install                                                        |
+|                                                                        |
+ ------------------------------------------------------------------------
 
 # Updating
 
-Re-run the installation script any time with `update`.
+Re-run the installation script any time with the following command:
+
+ ------------------------------------------------------------------------
+|                                                                        |
+|  $ update                                                              |
+|                                                                        |
+ ------------------------------------------------------------------------
+```
