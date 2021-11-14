@@ -15,7 +15,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
 
 # I don't want the printer app to stay open when I'm finished printing
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true

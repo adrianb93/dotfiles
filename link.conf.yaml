@@ -36,24 +36,12 @@
     ~/.gitignore_global:
         path: files/.gitignore_global
         relink: true
-    ~/.vim/coc-settings.json:
-        path: files/vim/coc.json
-        create: true
-        relink: true
     ~/.composer/composer.json:
         path: files/composer.json
         create: true
         relink: true
     ~/.ssh/config:
         path: files/ssh_config
-        create: true
-        relink: true
-    ~/.vim/after/ftplugin:
-        path: files/vim/after/ftplugin
-        create: true
-        relink: true
-    ~/.vim/ftdetect:
-        path: files/vim/ftdetect
         create: true
         relink: true
 

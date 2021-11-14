@@ -4,6 +4,7 @@ set -e
 
 export WELCOME_OPTIONS=20
 export WELCOME_FILE="welcome-$(echo "0$((1 + $RANDOM % $WELCOME_OPTIONS))" | tail -c 3).txt"
+echo ''
 echo "$(< "$HOME/Code/dotfiles/art/$WELCOME_FILE")"
 echo ''
 
@@ -104,11 +105,11 @@ echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo ''
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing and updating vim-plug and its dependencies...'
-vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
-vim -es -u $HOME/.vimrc -i NONE -c "PlugUpgrade" -c "qa"
-vim -es -u $HOME/.vimrc -i NONE -c "PlugUpdate" -c "qa"
-vim -es -u $HOME/.vimrc -i NONE -c 'PlugClean!' -c "qa"
-vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
+# vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
+# vim -es -u $HOME/.vimrc -i NONE -c "PlugUpgrade" -c "qa"
+# vim -es -u $HOME/.vimrc -i NONE -c "PlugUpdate" -c "qa"
+# vim -es -u $HOME/.vimrc -i NONE -c 'PlugClean!' -c "qa"
+# vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
 echo 'Done installing and updating vim-plug and its dependencies.'
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
@@ -121,13 +122,13 @@ echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 echo ''
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-echo 'Configuring software...'
-valet trust
+echo 'Misc configurations...'
+sudo valet trust
 
 # Suppress the compinit error caused from us preventing the double .zshrc echo for typewritten earlier
 sudo chmod 755 /usr/local/share/zsh/site-functions
 sudo chown -R root:staff /usr/local/share/zsh
-echo 'Done configuring software.'
+echo 'Done misc configurations.'
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
 echo ''
