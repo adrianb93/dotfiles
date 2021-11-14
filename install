@@ -2,6 +2,9 @@
 
 set -e
 
+echo "$(< $HOME/Code/dotfiles/art/welcome.txt)"
+echo ''
+
 echo 'We should only need the sudo password once:'
 sudo -v
 
