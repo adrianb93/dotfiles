@@ -10,3 +10,10 @@ The following are things I cannot automate or might not apply to your hardware:
     The display contrast on the MacBook displays are so good you won't see
     where the notch starts and ends with a black menu bar. The TopNotch app
     does a great job of hiding the notch: https://topnotch.app/
+
+# Slack Groups
+
+    * https://phpaustralia.slack.com
+    * https://serverlesslaravel.slack.com
+    * https://raycastcommunity.slack.com
+    * Personal/family spaces are in my Notion notes
