@@ -11,6 +11,22 @@ The following are things I cannot automate or might not apply to your hardware:
     where the notch starts and ends with a black menu bar. The TopNotch app
     does a great job of hiding the notch: https://topnotch.app/
 
+# Google Chrome Profiles
+
+    Best not to mix work and personal browsing. I colour my personal profile
+    yellow and never log into Facebook or YouTube on my work profile. Best
+    not to get into the habit of browsing to those dopamine hits when working.
+
+    Also, set it as your default browser.
+
+    Extensions:
+    * 1Password
+    * AdBlock
+    * Grammarly
+    * JSON Formatter
+    * Simplify Gmail
+    * Vue.js Devtools (beta)
+
 # Slack Groups
 
     * https://phpaustralia.slack.com
