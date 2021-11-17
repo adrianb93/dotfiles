@@ -42,15 +42,15 @@ function opendb () {
 function test() {
     (php artisan) > /dev/null
     if [ $? -eq 0 ]; then
-        php artisan test "$@" --parallel --recreate-databases
+        php artisan test --parallel --recreate-databases "$@"
         return
     fi
     if [ -f vendor/bin/pest ]; then
-        vendor/bin/pest "$@" --parallel --recreate-databases
+        vendor/bin/pest --parallel --recreate-databases "$@"
     elif [ -f vendor/bin/phpunit ]; then
-        vendor/bin/phpunit "$@" --parallel --recreate-databases
+        vendor/bin/phpunit "$@"
     else
-        phpunit "$@" --parallel --recreate-databases
+        phpunit "$@"
     fi
 }
 
