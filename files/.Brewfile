@@ -6,7 +6,6 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'shivammathur/php'              # For `php@7.3`
 tap 'teamookla/speedtest'           # For `speedtest`
 
 brew 'pkg-config' # bunch of things
@@ -33,9 +32,9 @@ brew 'mackup'
 brew 'mas'
 brew 'nginx'
 brew 'node'
-brew 'php@7.3'
 brew 'php@7.4'
 brew 'php@8.0'
+brew 'php@8.1'
 brew 'postgresql@13'
 brew 'ripgrep'
 brew 'speedtest'
