@@ -62,6 +62,7 @@ echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo ''
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Installing, updating, and cleaning up brew dependencies...'
+sudo chown -R $(whoami) $(brew --prefix)/*
 brew bundle --global
 brew bundle cleanup --force --global
 brew cleanup
