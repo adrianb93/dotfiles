@@ -37,6 +37,10 @@ source "$BREW_PREFIX/etc/profile.d/z.sh"
 # https://formulae.brew.sh/formula/sqlite#default
 export PATH="$BREW_PREFIX/opt/sqlite/bin:$PATH"
 
+# sqlite
+# https://formulae.brew.sh/formula/postgresql#default
+export PATH="$BREW_PREFIX/opt/postgresql@13/bin:$PATH"
+
 # GNU findutils
 # https://formulae.brew.sh/formula/findutils#default
 export PATH="$BREW_PREFIX/opt/findutils/libexec/gnubin:$PATH"
