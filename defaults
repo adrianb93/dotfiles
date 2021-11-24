@@ -1,115 +1,142 @@
 #!/usr/bin/env bash
 
-# Fast key repeat
+echo ' => Security: Disable the “Are you sure you want to open this application?” dialog'
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
+echo ' => Security: Require password immediately after sleep or screen saver begins'
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+echo ' => Keyboard: Fast key repeat'
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 defaults write -g ApplePressAndHoldEnabled -bool true # you want fast navigation keys, but I never care to key repeat letters or numbers.
 
-# Enable full keyboard access for dialogs
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Disable smart quotes as they’re annoying when typing code
+echo ' => Keyboard: Disable smart quotes as they’re annoying when typing code'
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-# Disable smart dashes as they’re annoying when typing code
+echo ' => Keyboard: Enable full keyboard access for dialogs'
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+echo ' => Keyboard: Disable smart dashes as they’re annoying when typing code'
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+echo ' => Keyboard: Disable auto-correct'
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# I don't want the printer app to stay open when I'm finished printing
+echo ' => Keyboard: Disable smart quotes as it’s annoying for messages that contain code'
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
+
+echo ' => Keyboard: Disable continuous spell checking'
+defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
+
+echo " => Printing: I don't want the printer app to stay open when I'm finished printing"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Set sidebar icon size to small
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
-
-# Expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# Expand print panel by default
+echo ' => Printing: Expand print panel by default'
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# Save to disk (not to iCloud) by default
+echo ' => Google Chrome: No swipe for back/forward in Chrome'
+defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
+
+echo ' => Safari: Enable Safari’s debug menu'
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+echo ' => Safari: Enable the Develop menu and the Web Inspector in Safari'
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+echo ' => TextEdit: Use plain text mode for new TextEdit documents'
+defaults write com.apple.TextEdit RichText -int 0
+
+echo ' => TextEdit: Open and save files as UTF-8 in TextEdit'
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+echo ' => Finder: Set sidebar icon size to small'
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+
+echo ' => Finder: Expand save panel by default'
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+echo ' => Finder: Save to disk (not to iCloud) by default'
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Finder defaults
+echo ' => Finder: new tabs and windows to home directory'
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
-# Show icons for hard drives, servers, and removable media on the desktop
+echo ' => Finder: show all filename extensions'
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+echo ' => Finder: prefer to not show hidden files as I know how to toggle them'
+defaults write com.apple.Finder AppleShowAllFiles -bool false
+
+echo ' => Finder: allow text selection in Quick Look'
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+echo ' => Finder: Do not display full POSIX path as Finder window title'
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
+
+echo ' => Finder: When performing a search, search the current folder by default'
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+echo ' => Finder: Warn when changing a file extension'
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+
+echo ' => Finder: Avoid creating .DS_Store files on network volumes'
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo ' => Finder: Use column list view in all Finder windows by default'
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+echo ' => Desktop: Do not show icons for hard drives, servers, and removable media on the desktop'
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 
-# Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+echo ' => Desktop: Turn off the desktop so I can admire my desktop background'
+defaults write com.apple.finder CreateDesktop false
 
-# Finder: prefer to not show hidden files as I know how to toggle them
-defaults write com.apple.Finder AppleShowAllFiles -bool false
-
-# Finder: allow text selection in Quick Look
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
-# Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
-# When performing a search, search the current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-
-# Warn when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
-
-# Avoid creating .DS_Store files on network volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-# Use column list view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
-
-# Set default screenshot location
+echo ' => Screenshots: Set default screenshot location'
 mkdir -p "${HOME}/Pictures/Screenshots"
 defaults write com.apple.screencapture "location" -string "${HOME}/Pictures/Screenshots"
 
-# I like the bouncing apps in the Dock
-defaults write com.apple.dock no-bouncing -bool false
-
-# Set the icon size of Dock items to 44 pixels
-defaults write com.apple.dock tilesize -int 44
-
-# I like the indicator lights for open applications in the Dock
-defaults write com.apple.dock show-process-indicators -bool true
-
-# Do not show recent apps in the dock
-defaults write com.apple.dock show-recents -bool false
-
-# I like the scale effect for minimising apps
-defaults write com.apple.dock "mineffect" -string "scale"
-
-# I prefer that apps minimise into the app icon
-defaults write com.apple.dock minimize-to-application -bool true
-
-# Automatically hide the dock
-defaults write com.apple.dock autohide -bool true
-
-# Automatically hide the menu bar
-defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
-
-# Don’t automatically rearrange Spaces based on most recent use
+echo ' => Spaces: Don’t automatically rearrange Spaces based on most recent use'
 defaults write com.apple.dock mru-spaces -bool false
 
-# I like the dock on the bottom
+echo ' => Menu Bar: Automatically hide the menu bar'
+defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
+
+echo ' => Dock: I like the bouncing apps in the Dock'
+defaults write com.apple.dock no-bouncing -bool false
+
+echo ' => Dock: Set the icon size of Dock items to 44 pixels'
+defaults write com.apple.dock tilesize -int 44
+
+echo ' => Dock: I like the indicator lights for open applications in the Dock'
+defaults write com.apple.dock show-process-indicators -bool true
+
+echo ' => Dock: Do not show recent apps in the dock'
+defaults write com.apple.dock show-recents -bool false
+
+echo ' => Dock: I like the scale effect for minimising apps'
+defaults write com.apple.dock "mineffect" -string "scale"
+
+echo ' => Dock: I prefer that apps minimise into the app icon'
+defaults write com.apple.dock minimize-to-application -bool true
+
+echo ' => Dock: Automatically hide the dock'
+defaults write com.apple.dock autohide -bool true
+
+echo ' => Dock: I like the dock on the bottom'
 defaults write com.apple.dock "orientation" -string "bottom"
 
-# Add only the applications folder to the right side of the dock
+echo ' => Dock: Add only the applications folder to the right side of the dock'
 defaults write com.apple.dock persistent-others -array '<dict>
     <key>tile-data</key>
     <integer>1412050432</integer>
@@ -138,30 +165,6 @@ defaults write com.apple.dock persistent-others -array '<dict>
     <key>tile-type</key>
     <string>directory-tile</string>
 </dict>'
-
-# Enable Safari’s debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-# Use plain text mode for new TextEdit documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8 in TextEdit
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-# Disable smart quotes as it’s annoying for messages that contain code
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-
-# Disable continuous spell checking
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-# I turn off my desktop so I can admire my desktop background
-defaults write com.apple.finder CreateDesktop false
 
 for app in "Dock" "Finder"; do
 	killall "${app}" > /dev/null 2>&1
