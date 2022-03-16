@@ -88,7 +88,7 @@ sudo mkdir -p /usr/local/share/zsh
 sudo mkdir -p /usr/local/share/zsh/site-functions
 sudo chmod a+rwx /usr/local/share/zsh/site-functions
 
-npm install -g npm@latest spaceship-prompt typewritten
+npm install -g npm@latest spaceship-prompt typewritten @vue/cli
 npm update -g
 echo 'Done installing and updating npm dependencies.'
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'

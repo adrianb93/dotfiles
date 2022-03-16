@@ -14,6 +14,7 @@ alias shrug="echo '¯\_(ツ)_/¯' | tr -d '\n' | pbcopy; echo '¯\_(ツ)_/¯'";
 
 # laravel
 alias artisan='php artisan'
+alias jigsaw='vendor/bin/jigsaw'
 
 # php
 alias php70='valet use php@7.0'
@@ -41,3 +42,4 @@ alias ll='ls -lG'
 
 # git
 alias nah='git reset --hard; git clean -df'
+alias lit='lazygit'

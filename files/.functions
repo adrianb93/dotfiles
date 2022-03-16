@@ -41,12 +41,20 @@ function opendb () {
 
 function test() {
     (php artisan) > /dev/null
+
     if [ $? -eq 0 ]; then
-        php artisan test --parallel --recreate-databases "$@"
-        return
-    fi
-    if [ -f vendor/bin/pest ]; then
-        vendor/bin/pest --parallel --recreate-databases "$@"
+        args=("$@")
+
+        # Use --recreate-databases when running in parallel.
+        if [[ " ${args[*]} " =~ " --parallel " || " ${args[*]} " =~ " -p " ]]; then
+            if [[ ! " ${args[*]} " =~ " --recreate-databases " ]]; then
+                args+=("--recreate-databases")
+            fi
+        fi
+
+        php artisan test $args
+    elif [ -f vendor/bin/pest ]; then
+        vendor/bin/pest "$@"
     elif [ -f vendor/bin/phpunit ]; then
         vendor/bin/phpunit "$@"
     else
@@ -54,10 +62,51 @@ function test() {
     fi
 }
 
+function ptest() {
+    args=("$@")
+
+    if [[ ! " ${args[*]} " =~ " --parallel " ]]; then
+        args+=("--parallel")
+    fi
+
+    test $args
+}
+
 function archive() {
-   zip -r "$1".zip -i "$1" ;
+    zip -r "$1".zip -i "$1" ;
 }
 
 function silent() {
-   "$@" >& /dev/null
+    "$@" >& /dev/null
+}
+
+function cores() {
+    pids=()
+    cores=$(sysctl hw.physicalcpu hw.logicalcpu | grep 'physical' | sed 's/[^0-9]*//g')
+
+    if [[ $# -eq 0 ]]; then
+        echo $cores
+        return
+    fi
+
+    killall() {
+        trap '' SIGINT # Prevent `ctrl+c` from triggering killall again.
+        for pid in "${pids[@]}"; do
+            kill -0 "$pid" && kill "$pid"
+        done
+    }
+    trap killall SIGINT
+    for i in `seq $cores`; do {
+        $@ & pids+=("$!")
+    } done
+    wait $pids
+    trap SIGINT
+}
+
+function qwork() {
+    cores php artisan queue:listen --queue default,high,medium,low,extended,reports
+}
+
+function qmonitor() {
+    php artisan queue:monitor default,high,medium,low,extended,reports
 }
