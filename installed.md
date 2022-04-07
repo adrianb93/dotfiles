@@ -30,13 +30,24 @@ The following are things I cannot automate or might not apply to your hardware:
     * Grammarly
     * JSON Formatter
     * Simplify Gmail
-    * Vue.js Devtools (beta)
+    * Vue.js Devtools
 
     Lastly, YouTube does not have a 3x option. Adding this bookmark will let
     you set your own playback speed:
 
     ```
     javascript:%20r%20=%20prompt("Enter%20Rate");%20document.getElementsByClassName("video-stream")[0].playbackRate%20=%20parseFloat(r);
+    ```
+
+# Plugins for `gh`
+
+    These require you to setup auth for `gh`. Please run these manually:
+
+    ```
+    gh auth status
+    gh auth login # if needed
+
+    gh extension install dlvhdr/gh-dash
     ```
 
 # Slack Groups

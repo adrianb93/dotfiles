@@ -1,13 +1,13 @@
 [user]
-    name = Adrian Brown
-    email = adrianrb93@gmail.com
+	name = Adrian Brown
+	email = adrianrb93@gmail.com
 [core]
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/adrianbrown/.gitignore_global
     editor = code
     pager = delta
 [commit]
     # gpgsign = true
-    template = ~/.gitmessage
+	template = ~/.gitmessage
 [gpg]
     program = gpg
 [color]
@@ -93,8 +93,8 @@
     process = git-lfs filter-process
     required = true
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

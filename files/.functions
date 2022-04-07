@@ -104,7 +104,7 @@ function cores() {
 }
 
 function qwork() {
-    cores php artisan queue:listen --queue default,high,medium,low,extended,reports
+    cores php artisan queue:work --tries 1 --backoff 5 --queue urgent,schedule,workflows,default,invites,database,reports,extended
 }
 
 function qmonitor() {

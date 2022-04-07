@@ -6,6 +6,7 @@
         "laravel/valet": "^3.0-alpha",
         "laravel/vapor-cli": "^1.36",
         "tightenco/takeout": "^2.0",
-        "tightenco/tlint": "^6.2"
+        "tightenco/tlint": "^6.2",
+        "spatie/github-actions-watcher": "^1.0"
     }
 }
