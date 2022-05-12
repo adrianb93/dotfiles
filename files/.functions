@@ -36,7 +36,7 @@ function opendb () {
     DB_URL="${DB_CONNECTION}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}"
 
     echo "Opening ${DB_URL}"
-    open $DB_URL
+    open $DB_URL -a "/Applications/TablePlus.app/Contents/MacOS/TablePlus"
 }
 
 function test() {
@@ -45,10 +45,10 @@ function test() {
     if [ $? -eq 0 ]; then
         args=("$@")
 
-        # Use --recreate-databases when running in parallel.
+        # Use --drop-databases when running in parallel.
         if [[ " ${args[*]} " =~ " --parallel " || " ${args[*]} " =~ " -p " ]]; then
-            if [[ ! " ${args[*]} " =~ " --recreate-databases " ]]; then
-                args+=("--recreate-databases")
+            if [[ ! " ${args[*]} " =~ " --drop-databases " ]]; then
+                args+=("--drop-databases")
             fi
         fi
 
@@ -60,16 +60,6 @@ function test() {
     else
         phpunit "$@"
     fi
-}
-
-function ptest() {
-    args=("$@")
-
-    if [[ ! " ${args[*]} " =~ " --parallel " ]]; then
-        args+=("--parallel")
-    fi
-
-    test $args
 }
 
 function archive() {
@@ -103,10 +93,18 @@ function cores() {
     trap SIGINT
 }
 
+export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,extended'
+
 function qwork() {
-    cores php artisan queue:work --tries 1 --backoff 5 --queue urgent,schedule,workflows,default,invites,database,reports,extended
+    cores php artisan queue:work --memory=2048 --timeout=120 --tries 1 --backoff 5 --queue ${LARAVEL_QUEUES}
+}
+
+function qclear() {
+    echo ${LARAVEL_QUEUES} | sed -n 1'p' | tr ',' '\n' | while read queue; do
+        php artisan queue:clear --queue ${queue}
+    done
 }
 
 function qmonitor() {
-    php artisan queue:monitor default,high,medium,low,extended,reports
+    php artisan queue:monitor ${LARAVEL_QUEUES}
 }
