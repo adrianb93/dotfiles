@@ -52,7 +52,7 @@ brew 'zsh-syntax-highlighting'
 brew 'zsh'
 
 # apps
-cask '1password'
+cask '1password-beta'
 cask 'around'
 cask 'brave-browser'
 cask 'canon-eos-webcam-utility'
