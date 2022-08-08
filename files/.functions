@@ -93,10 +93,10 @@ function cores() {
     trap SIGINT
 }
 
-export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,extended'
+export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,extended,idle'
 
 function qwork() {
-    cores php artisan queue:work --memory=2048 --timeout=120 --tries 1 --backoff 5 --queue ${LARAVEL_QUEUES}
+    cores php artisan queue:work --memory=2048 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
 }
 
 function qclear() {
@@ -106,5 +106,10 @@ function qclear() {
 }
 
 function qmonitor() {
-    php artisan queue:monitor ${LARAVEL_QUEUES}
+    watch php artisan queue:monitor ${LARAVEL_QUEUES}
 }
+
+function qrestart() {
+    php artisan queue:restart
+}
+

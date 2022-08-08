@@ -7,6 +7,7 @@
         "laravel/vapor-cli": "^1.36",
         "tightenco/takeout": "^2.0",
         "tightenco/tlint": "^6.2",
-        "spatie/github-actions-watcher": "^1.0"
+        "spatie/github-actions-watcher": "^1.0",
+        "laravel/pint": "^0.1.3"
     }
 }
