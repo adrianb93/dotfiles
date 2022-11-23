@@ -1,6 +1,14 @@
 - clean: ['~']
 
 - link:
+    ~/.config/kitty/kitty.conf:
+        path: files/kitty.conf
+        relink: true
+        create: true
+    ~/.config/kitty/current-theme.conf:
+        path: files/current-theme.conf
+        relink: true
+        create: true
     ~/.Brewfile:
         path: files/.Brewfile
         relink: true
@@ -28,13 +36,33 @@
         path: files/.gitconfig
         relink: true
     ~/.vimrc:
-        path: files/vim/.vimrc
+        path: files/vim/vimrc
+        relink: true
+    ~/vim:
+        path: files/vim
+        create: true
+        relink: true
+    ~/.config/nvim:
+        path: files/vim
+        create: true
+        relink: true
+    ~/.SpaceVim.d/init.toml:
+        path: files/vim/config.toml
+        create: true
+        relink: true
+    ~/.iterm:
+        path: files/iterm
+        create: true
         relink: true
     ~/.hushlogin:
         path: files/.hushlogin
         relink: true
     ~/.gitignore_global:
         path: files/.gitignore_global
+        relink: true
+    ~/.config/phpactor/phpactor.json:
+        path: files/phpactor.json
+        create: true
         relink: true
     ~/.composer/composer.json:
         path: files/composer.json
@@ -49,3 +77,4 @@
     - ~/.fzf_history
     - ~/.vim/undo_history
     - ~/.vim/autoload
+    - ~/.vim/viminfo

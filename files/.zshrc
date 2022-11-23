@@ -96,8 +96,7 @@ autoload -Uz compinit
 compinit
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+source /opt/homebrew/lib/node_modules/spaceship-prompt/spaceship.zsh
 fpath=($fpath "/Users/adrianbrown/.zfunctions")
 
 # Set typewritten ZSH as a prompt
