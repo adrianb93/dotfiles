@@ -110,7 +110,7 @@ echo ' => Spaces: Don’t automatically rearrange Spaces based on most recent us
 defaults write com.apple.dock mru-spaces -bool false
 
 echo ' => Menu Bar: Automatically hide the menu bar'
-defaults write NSGlobalDomain "_HIHideMenuBar" -bool true
+defaults write NSGlobalDomain "_HIHideMenuBar" -bool false
 
 echo ' => Dock: I like the bouncing apps in the Dock'
 defaults write com.apple.dock no-bouncing -bool false
