@@ -1,6 +1,7 @@
 [user]
 	name = Adrian Brown
 	email = adrianrb93@gmail.com
+    # signingkey = ssh-ed25519 xxx
 [core]
 	excludesfile = /Users/adrianbrown/.gitignore_global
     editor = code
@@ -9,7 +10,8 @@
     # gpgsign = true
 	template = ~/.gitmessage
 [gpg]
-    program = gpg
+    format = ssh
+    # program = gpg
 [color]
     ui = auto
 [color "diff"]
@@ -94,7 +96,7 @@
     required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

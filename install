@@ -49,6 +49,7 @@ echo ''
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 echo 'Linking dotfiles...'
 /bin/bash $HOME/Code/dotfiles/link
+ln -s $HOME/Code/dotfiles/files/.iterm $HOME
 echo 'Done linking dotfiles.'
 echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
