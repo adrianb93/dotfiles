@@ -36,18 +36,21 @@
         path: files/.gitconfig
         relink: true
     ~/.vimrc:
-        path: files/vim/vimrc
+        # path: files/vim/vimrc
+        path: files/spacevim/vimrc
         relink: true
     ~/vim:
-        path: files/vim
+        # path: files/vim
+        path: files/spacevim
         create: true
         relink: true
     ~/.config/nvim:
-        path: files/vim
+        # path: files/vim
+        path: files/spacevim
         create: true
         relink: true
     ~/.SpaceVim.d/init.toml:
-        path: files/vim/config.toml
+        path: files/spacevim/config.toml
         create: true
         relink: true
     ~/.iterm:
