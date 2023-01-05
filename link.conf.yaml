@@ -2,55 +2,52 @@
 
 - link:
     ~/.config/kitty/kitty.conf:
-        path: files/kitty.conf
+        path: files/kitty/kitty.conf
         relink: true
         create: true
     ~/.config/kitty/current-theme.conf:
-        path: files/current-theme.conf
+        path: files/kitty/current-theme.conf
         relink: true
         create: true
     ~/.Brewfile:
-        path: files/.Brewfile
+        path: files/brew/Brewfile
         relink: true
         create: true
     ~/.gnupg/gpg-agent.conf:
-        path: files/gpg-agent.conf
+        path: files/git/gpg-agent.conf
         relink: true
         create: true
     ~/.gitmessage:
-        path: files/.gitmessage
+        path: files/git/gitmessage
+        relink: true
+    ~/.gitconfig:
+        path: files/git/gitconfig
+        relink: true
+    ~/.gitignore_global:
+        path: files/git/gitignore_global
         relink: true
     ~/.aliases:
-        path: files/.aliases
+        path: files/zsh/aliases
         relink: true
     ~/.functions:
-        path: files/.functions
+        path: files/zsh/functions
         relink: true
     ~/.zshrc:
-        path: files/.zshrc
+        path: files/zsh/zshrc
         relink: true
     ~/.mackup.cfg:
         path: files/.mackup.cfg
         relink: true
-    ~/.gitconfig:
-        path: files/.gitconfig
+    ~/.config/zellij/config.kdl:
+        path: files/zellij/config.kdl
+        create: true
         relink: true
-    ~/.vimrc:
-        # path: files/vim/vimrc
-        path: files/spacevim/vimrc
-        relink: true
-    ~/vim:
-        # path: files/vim
-        path: files/spacevim
+    ~/.config/helix/config.toml:
+        path: files/helix/config.toml
         create: true
         relink: true
     ~/.config/nvim:
-        # path: files/vim
-        path: files/spacevim
-        create: true
-        relink: true
-    ~/.SpaceVim.d/init.toml:
-        path: files/spacevim/config.toml
+        path: files/nvim
         create: true
         relink: true
     ~/.iterm:
@@ -58,10 +55,7 @@
         create: true
         relink: true
     ~/.hushlogin:
-        path: files/.hushlogin
-        relink: true
-    ~/.gitignore_global:
-        path: files/.gitignore_global
+        path: files/zsh/hushlogin
         relink: true
     ~/.config/phpactor/phpactor.json:
         path: files/phpactor.json
@@ -78,6 +72,6 @@
 
 - create:
     - ~/.fzf_history
-    - ~/.vim/undo_history
-    - ~/.vim/autoload
-    - ~/.vim/viminfo
+    # - ~/.vim/undo_history
+    # - ~/.vim/autoload
+    # - ~/.vim/viminfo

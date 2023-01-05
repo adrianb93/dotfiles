@@ -134,19 +134,6 @@ set -e
     (
         echo ''
         echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-        echo 'Installing and updating vim-plug and its dependencies...'
-        # vim -es -u $HOME/.vimrc -i NONE -c "PlugInstall" -c "qa"
-        # vim -es -u $HOME/.vimrc -i NONE -c "PlugUpgrade" -c "qa"
-        # vim -es -u $HOME/.vimrc -i NONE -c "PlugUpdate" -c "qa"
-        # vim -es -u $HOME/.vimrc -i NONE -c 'PlugClean!' -c "qa"
-        # vim -es -u $HOME/.vimrc -i NONE -c "CocUpdateSync" -c "qa"
-        echo 'Done installing and updating vim-plug and its dependencies.'
-        echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    )
-
-    (
-        echo ''
-        echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         echo 'Installing and updating FZF...'
         $(brew --prefix)/opt/fzf/install --key-bindings --completion --update-rc --no-bash --no-fish
         echo 'Done installing and updating FZF.'

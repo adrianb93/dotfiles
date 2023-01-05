@@ -1,0 +1,50 @@
+# bat, not cat https://github.com/sharkdp/bat
+alias cat="bat"
+export BAT_THEME="Dracula"
+
+# vim
+alias ":q"="exit"
+alias vim="nvim"
+
+# ssh keys
+alias sshgen='ssh-keygen -t rsa'
+alias sshkey='pbcopy < ~/.ssh/id_rsa.pub'
+
+# emotes
+alias shrug="echo '¯\_(ツ)_/¯' | tr -d '\n' | pbcopy; echo '¯\_(ツ)_/¯'";
+
+# laravel
+alias artisan='php artisan'
+alias jigsaw='vendor/bin/jigsaw'
+
+# php
+alias php70='valet use php@7.0'
+alias php71='valet use php@7.1'
+alias php72='valet use php@7.2'
+alias php73='valet use php@7.3'
+alias php74='valet use php@7.4'
+alias php80='valet use php@8.0'
+alias php81='valet use php@8.1'
+alias php82='valet use php@8.2'
+
+# db
+alias sqlite="sqlite3"
+
+# testing
+alias pest='vendor/bin/pest'
+alias phpspec='vendor/bin/phpspec'
+alias phpunit='vendor/bin/phpunit'
+alias phpstan='vendor/bin/phpstan'
+alias phpcs='vendor/bin/php-cs-fixer'
+alias phpl="find . -type f -name '*.php' -not -path '*vendor/*' -print0 | xargs -0 -n1 -P8 php -l |grep 'PHP Parse error'"
+
+# zellij
+alias zj='zellij'
+
+# ls
+alias ls='ls -GFh'
+alias ll='ls -lG'
+
+# git
+alias nah='git reset --hard; git clean -df'
+alias lit='lazygit'
