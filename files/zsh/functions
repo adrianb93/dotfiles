@@ -93,10 +93,25 @@ function cores() {
     trap SIGINT
 }
 
+function killport() {
+    pid=$(lsof -t -i tcp:$1)
+
+    if [ "$pid" != '' ]; then
+        echo "Killing tcp:$1 running on PID $pid."
+        kill -9 $pid
+    else
+        echo "Nothing is running on tcp:$1."
+    fi
+}
+
 export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,extended,idle'
 
 function qwork() {
-    cores php artisan queue:work --memory=2048 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
+    cores php artisan queue:work --memory=1024 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
+}
+
+function qlisten() {
+    cores php artisan queue:listen --memory=1024 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
 }
 
 function qclear() {

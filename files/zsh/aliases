@@ -2,9 +2,12 @@
 alias cat="bat"
 export BAT_THEME="Dracula"
 
+# 1Password
+alias 1p='op'
+
 # vim
-alias ":q"="exit"
-alias vim="nvim"
+alias ':q'='exit'
+alias vim='nvim'
 
 # ssh keys
 alias sshgen='ssh-keygen -t rsa'
@@ -28,7 +31,7 @@ alias php81='valet use php@8.1'
 alias php82='valet use php@8.2'
 
 # db
-alias sqlite="sqlite3"
+alias sqlite='sqlite3'
 
 # testing
 alias pest='vendor/bin/pest'

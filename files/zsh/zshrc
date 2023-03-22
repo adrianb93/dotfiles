@@ -39,7 +39,7 @@ export PATH="$BREW_PREFIX/opt/sqlite/bin:$PATH"
 
 # sqlite
 # https://formulae.brew.sh/formula/postgresql#default
-export PATH="$BREW_PREFIX/opt/postgresql@13/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/postgresql@15/bin:$PATH"
 
 # GNU findutils
 # https://formulae.brew.sh/formula/findutils#default
