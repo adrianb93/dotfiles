@@ -12,9 +12,9 @@ function jira() {
     fi
 
     if [ -n "${TICKET_NUMBER}" ]; then
-        open "https://xxxxxx.atlassian.net/browse/DEV-${TICKET_NUMBER}"
+        open "https://informed365.atlassian.net/browse/DEV-${TICKET_NUMBER}"
     else
-        open "https://xxxxxx.atlassian.net/secure/RapidBoard.jspa?rapidView=6&projectKey=DEV&view=planning.nodetail&quickFilter=22&quickFilter=24&epics=visible&issueLimit=100"
+        open "https://informed365.atlassian.net/jira/software/projects/DEV/boards/2"
     fi
 }
 
@@ -97,8 +97,10 @@ function killport() {
     pid=$(lsof -t -i tcp:$1)
 
     if [ "$pid" != '' ]; then
-        echo "Killing tcp:$1 running on PID $pid."
-        kill -9 $pid
+        for item in ${pid//\\n}; do
+            echo "Killing tcp:$1 running on PID $pid."
+            kill -9 $item
+        done
     else
         echo "Nothing is running on tcp:$1."
     fi
