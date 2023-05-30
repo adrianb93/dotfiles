@@ -97,7 +97,7 @@ function killport() {
     pid=$(lsof -t -i tcp:$1)
 
     if [ "$pid" != '' ]; then
-        for item in ${pid//\\n}; do
+        for item in ${pid//\n/}; do
             echo "Killing tcp:$1 running on PID $pid."
             kill -9 $item
         done
