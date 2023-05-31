@@ -1,0 +1,5 @@
+# runtime/themes/base16_transparent.toml
+inherits = "base16_transparent"
+
+# make any modifications below this line
+

@@ -46,6 +46,10 @@
         path: files/helix/config.toml
         create: true
         relink: true
+    ~/.config/helix/themes/theme_settings.toml:
+        path: files/helix/themes/theme_settings.toml
+        create: true
+        relink: true
     ~/.config/nvim:
         path: files/nvim
         create: true

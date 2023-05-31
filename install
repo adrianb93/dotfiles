@@ -9,7 +9,7 @@ set -e
     )
 
     (
-        export WELCOME_OPTIONS=20
+        export WELCOME_OPTIONS=21
         export WELCOME_FILE="welcome-$(echo "0$((1 + $RANDOM % $WELCOME_OPTIONS))" | tail -c 3).txt"
         echo ''
         echo "$(< "$HOME/Code/dotfiles/art/$WELCOME_FILE")"
