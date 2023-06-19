@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
     timeout = setTimeout(update, 100);
   }, false);
 
+  window.addEventListener('scroll', function() {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => update(false), 100);
+  }, false);
+
   update();
 }, false);
 
@@ -46,20 +51,23 @@ function init() {
 }
 
 // reset constraints
-function update() {
+function update(resizing = true) {
+  const scrollY = window.scrollY
   ww = win.innerWidth;
   wh = win.innerHeight;
-  translateX = Math.floor((Math.random() * ww) + 1);
-  translateY = Math.floor((Math.random() * wh) + 1);
+  if (resizing) {
+    translateX = Math.floor((Math.random() * ww) + 1);
+    translateY = Math.floor((Math.random() * wh) + 1);
+  }
   boxWidth = box.offsetWidth;
   boxHeight = box.offsetHeight;
   boxTop = box.offsetTop;
   boxLeft = box.offsetLeft;
 
   xMin = -boxLeft;
-  yMin = -boxTop;
+  yMin = -boxTop + scrollY;
   xMax = win.innerWidth - boxLeft - boxWidth;
-  yMax = win.innerHeight - boxTop - boxHeight;
+  yMax = win.innerHeight - boxTop - boxHeight + scrollY;
 }
 
 function move() {
