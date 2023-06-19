@@ -98,7 +98,9 @@ set -e
             spaceship-prompt \
             typewritten \
             @vue/cli \
-            git-trim
+            git-trim \
+            vls \
+            intelephense
 
         npm update -g
         echo 'Done installing and updating npm dependencies.'

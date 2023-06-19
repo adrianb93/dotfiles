@@ -43,6 +43,9 @@ alias phpl="find . -type f -name '*.php' -not -path '*vendor/*' -print0 | xargs 
 
 # zellij
 alias zj='zellij'
+alias zjr='zellij run --'
+alias zja='zellij action'
+alias zjc='bat ~/.config/zellij/config.kdl'
 
 # ls
 alias ls='ls -GFh'

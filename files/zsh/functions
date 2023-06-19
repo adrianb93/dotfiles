@@ -5,7 +5,7 @@ function update() {
 
 # Open jira ticket for the branch or for the given ticket number
 function jira() {
-    TICKET_NUMBER=${${1}##DEV-}
+    TICKET_NUMBER=${$(echo ${1} | tr '[:lower:]' '[:upper:]')##DEV-}
 
     if [ -z "${TICKET_NUMBER}" ]; then
         TICKET_NUMBER=$(git symbolic-ref HEAD 2>/dev/null | cut -d/ -f4 | cut -d- -f2)
@@ -14,7 +14,7 @@ function jira() {
     if [ -n "${TICKET_NUMBER}" ]; then
         open "https://informed365.atlassian.net/browse/DEV-${TICKET_NUMBER}"
     else
-        open "https://informed365.atlassian.net/jira/software/projects/DEV/boards/2"
+hotfix/DEV-533        open "https://informed365.atlassian.net/jira/software/projects/DEV/boards/2"
     fi
 }
 
