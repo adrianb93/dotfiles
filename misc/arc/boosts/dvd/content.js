@@ -107,7 +107,9 @@ function setLimits() {
       direction = 'se';
     }
     switchColor();
+    translateY = yMin;
   }
+
   if (translateY >= yMax) {
     if (direction == 'se') {
       direction = 'ne';
@@ -115,7 +117,9 @@ function setLimits() {
       direction = 'nw';
     }
     switchColor();
+    translateY = yMax;
   }
+
   if (translateX <= xMin) {
     if (direction == 'nw') {
       direction = 'ne';
@@ -123,7 +127,9 @@ function setLimits() {
       direction = 'se';
     }
     switchColor();
+    translateX = xMin;
   }
+
   if (translateX >= xMax) {
     if (direction == 'ne') {
       direction = 'nw';
@@ -131,6 +137,7 @@ function setLimits() {
       direction = 'sw';
     }
     switchColor();
+    translateX = xMax;
   }
 }
 
