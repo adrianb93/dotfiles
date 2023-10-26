@@ -62,7 +62,10 @@ export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
 
 # composer
 # https://formulae.brew.sh/formula/composer#default
-export PATH="/Users/adrianbrown/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# go modules
+export PATH="$HOME/go/bin:$PATH"
 
 # locally installed composer install binaries
 # https://twitter.com/paulredmond/status/1189952205182226432
@@ -77,7 +80,7 @@ export FZF_DEFAULT_COMMAND="fd --type file --follow --no-ignore --hidden --exclu
 
 # phpactor
 # https://github.com/phpactor/phpactor
-export PATH="/Users/adrianbrown/.vim/plugged/phpactor/bin:$PATH"
+export PATH="$HOME/.vim/plugged/phpactor/bin:$PATH"
 
 # VIM, not nano
 export VISUAL=nvim
@@ -97,13 +100,13 @@ compinit
 
 # Set Spaceship ZSH as a prompt
 source /opt/homebrew/lib/node_modules/spaceship-prompt/spaceship.zsh
-fpath=($fpath "/Users/adrianbrown/.zfunctions")
+fpath=($fpath "$HOME/.zfunctions")
 
 # Set typewritten ZSH as a prompt
 export TYPEWRITTEN_CURSOR='terminal'
 autoload -U promptinit; promptinit
 prompt typewritten
-fpath=($fpath "/Users/adrianbrown/.zfunctions")
+fpath=($fpath "$HOME/.zfunctions")
 
 # organised fun
 source $HOME/.aliases

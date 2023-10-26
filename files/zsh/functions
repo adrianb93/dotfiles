@@ -106,7 +106,7 @@ function killport() {
     fi
 }
 
-export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,extended,idle'
+export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,cache,extended,idle'
 
 function qwork() {
     cores php artisan queue:work --memory=1024 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
@@ -130,3 +130,7 @@ function qrestart() {
     php artisan queue:restart
 }
 
+function clog() {
+    echo '' > storage/logs/laravel.log
+    echo '' > /opt/homebrew/var/log/php-fpm.log
+}
