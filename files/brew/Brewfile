@@ -1,13 +1,10 @@
 tap 'buo/cask-upgrade'
 tap 'homebrew/bundle'
-# tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'nicoverbruggen/homebrew-cask' # For `phpmon`
-tap 'teamookla/speedtest' # For `speedtest`
 
 brew 'pkg-config' # bunch of things need this
 brew 'awscli'
@@ -37,13 +34,13 @@ brew 'lazygit'
 brew 'less'
 brew 'mackup'
 brew 'mas'
+brew 'minio-mc'
 brew 'neovim'
 brew 'nginx'
 brew 'node'
 brew 'php'
 brew 'postgresql@15'
 brew 'ripgrep'
-brew 'speedtest'
 brew 'sqlite'
 brew 'tree'
 brew 'vim'
