@@ -116,7 +116,7 @@ set -e
         composer global update --with-all-dependencies
         export COMPOSER_ALLOW_SUPERUSER=0
         # sudo valet install
-        sudo valet trust
+        # sudo valet trust
         echo 'Done installing and updating composer dependencies.'
         echo '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     )
