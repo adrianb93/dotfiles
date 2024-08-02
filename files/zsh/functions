@@ -106,27 +106,27 @@ function killport() {
     fi
 }
 
-export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,reports,cache,extended,idle'
+export LARAVEL_QUEUES='urgent,schedule,workflows,default,invites,database,coles,reports,cache,extended,idle'
 
-function qwork() {
-    cores php artisan queue:work --memory=1024 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
+function queue:work() {
+    cores php artisan queue:work --memory=512 --timeout=3660 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
 }
 
-function qlisten() {
-    cores php artisan queue:listen --memory=1024 --timeout=10800 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
+function queue:listen() {
+    cores php artisan queue:listen --memory=512 --timeout=3660 --tries 3 --backoff 5 --queue ${LARAVEL_QUEUES}
 }
 
-function qclear() {
+function queue:clear() {
     echo ${LARAVEL_QUEUES} | sed -n 1'p' | tr ',' '\n' | while read queue; do
         php artisan queue:clear --queue ${queue}
     done
 }
 
-function qmonitor() {
+function queue:monitor() {
     watch php artisan queue:monitor ${LARAVEL_QUEUES}
 }
 
-function qrestart() {
+function queue:restart() {
     php artisan queue:restart
 }
 

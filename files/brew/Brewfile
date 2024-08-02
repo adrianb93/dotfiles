@@ -2,8 +2,6 @@ tap 'buo/cask-upgrade'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'homebrew/cask'
-tap 'homebrew/core'
 tap 'homebrew/services'
 
 brew 'pkg-config' # bunch of things need this
@@ -86,6 +84,7 @@ cask 'transmission'
 cask 'tuple'
 cask 'visual-studio-code'
 cask 'vlc'
+cask 'zed'
 cask 'zoom'
 
 # mas 'Adblock Plus', id: 1432731683
