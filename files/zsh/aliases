@@ -5,6 +5,9 @@ export BAT_THEME="Dracula"
 # 1Password
 alias 1p='op'
 
+# System
+alias crackle='sudo killall coreaudiod'
+
 # vim
 alias ':q'='exit'
 alias vim='nvim'
